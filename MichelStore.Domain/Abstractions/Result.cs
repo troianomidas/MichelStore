@@ -45,7 +45,5 @@ public class Result<T> : Result
 
     [NotNull]
     public T Value => _value! ?? throw new InvalidOperationException("Result has no value");
-
     public static implicit operator Result<T>(T? value) => Create(value);
-
 }

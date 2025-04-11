@@ -1,4 +1,3 @@
-using System.Reflection;
 using MichelStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +8,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Product> Products { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(DependencyInjection).Assembly);
-    }
+        =>
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DependencyInjection).Assembly);
 }
